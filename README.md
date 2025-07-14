@@ -11,6 +11,8 @@ To use Bundle Mode in `react-native-worklets` you need to apply several patches.
 
 ## Patching instructions
 
+Based on your package manager you should either use patches from `yarn` directory or `patch-package` directory.
+
 ## Using Yarn Modern (Yarn 2+)
 
 Yarn Modern has a builtin patching functionality. Unfortunately, it cannot auto-apply a patch from a patch file conveniently. The best way to apply patches from this repo using it is:
@@ -23,13 +25,13 @@ yarn patch react-native
 
 2. Following the instructions provided by Yarn change anything in the patched package.
 3. Following the instructions provided by Yarn generate a patch and necessary resolutions based on your changes.
-4. Replace the generated patch contents with the contents of the patch file from this repo.
+4. Replace the generated patch contents with the contents of the respective patch file.
 5. Run `yarn install` to re-apply the patch.
 6. Follow these steps for `@react-native/community-cli-plugin`, `metro` and `metro-runtime` as well.
 
 ## Using npm and patch-package
 
-Using npm and patch-package is a lot more problematic in patching transitive dependencies. For best effect you should firstly clear your npm cache and dedupe current dependencies. Skipping this step is very likely to lead in massive dependency duplication and the applied patched not picked up correctly.
+Using npm and patch-package is a lot more problematic in patching transitive dependencies. For best effect you should firstly clear your npm cache and dedupe current dependencies. Skipping this step is very likely to lead in massive dependency duplication and the applied patches not picked up correctly.
 
 1. Clear the npm cache and dedupe dependencies:
 
